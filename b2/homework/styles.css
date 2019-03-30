@@ -21,7 +21,7 @@ span:hover {
 
 }
 
-span[class="vr"] {
+span[class="vt"] {
     display: block;
     color: #402E2A;
     font-weight: bold;
@@ -37,5 +37,3 @@ span[class="vr"] {
     width: 100px;
 }
 
-inline-block elements are simply considered text, you can align it the same way you align text
-contents.
