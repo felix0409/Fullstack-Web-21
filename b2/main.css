@@ -1,0 +1,47 @@
+p {
+    color: #fd3c8c;
+}
+
+.text-red, span {
+    color: #ff0000;
+}
+
+#top {
+    color: #00ffff;
+}
+
+p.text-red {
+    background: #00ffff;
+}
+
+ul li {
+    color: red; /* quan he cha con, li nam ben trong ul la dc. li thua ke ul*/
+}
+
+ul > li {
+    color: green; /* direct child */
+}
+
+input[type=email] {
+    background: #ff00f2;
+}
+
+a:hover {
+    color: #ff00f2;
+}
+
+img:hover {
+    width: 50%;
+}
+
+/* Chẵn lẻ 
+ul li:ntn-child(odd)
+ul li:ntn-child(even) */
+
+#background {
+    background-color: #ff00f2;
+    background-image: url('http://via.placeholder.com/350x150');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

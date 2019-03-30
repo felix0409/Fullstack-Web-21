@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <meta name="keywords" content="16p">
+        <meta name="description" content="Day la mota"> <!-- for SEO --> 
+        <link rel="stylesheet" href="./main.css">
+    </head>
+    <body>
+        <h1 id="top">Heading 1</h1>
+        <h2 class="text-red">Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis augue sed erat rhoncus, id tristique lacus pulvinar. Etiam sit amet neque ut justo elementum convallis. Vestibulum eget magna auctor sem mattis interdum quis quis est. Mauris odio urna, tempor quis odio vitae, convallis fringilla lacus. Praesent finibus convallis condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec id facilisis odio. Proin eget eros urna.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis augue sed erat rhoncus, id tristique lacus pulvinar. Etiam sit amet neque ut justo elementum convallis. Vestibulum eget magna auctor sem mattis interdum quis quis est. Mauris odio urna, tempor quis odio vitae, convallis fringilla lacus. Praesent finibus convallis condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec id facilisis odio. Proin eget eros urna.</p>
+        <div id="background">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis augue sed erat rhoncus, id tristique lacus pulvinar. Etiam sit amet neque ut justo elementum convallis. Vestibulum eget magna auctor sem mattis interdum quis quis est. Mauris odio urna, tempor quis odio vitae, convallis fringilla lacus. Praesent finibus convallis condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec id facilisis odio. Proin eget eros urna.</div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis augue sed erat rhoncus, id tristique lacus pulvinar. Etiam sit amet neque ut justo elementum convallis. Vestibulum eget magna auctor sem mattis interdum quis quis est. Mauris odio urna, tempor quis odio vitae, convallis fringilla lacus. Praesent finibus convallis condimentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec id facilisis odio. Proin eget eros urna.</div>
+
+        <span>Lorem ipsum dolor sit amet</span>
+        <span>Lorem ipsum dolor sit amet</span>
+
+        <img src="http://via.placeholder.com/350x150" alt="this is a photo">
+        <a href="https://google.com.vn" target="_blank">Go to GG</a>
+        <a href="#top">Go to top</a>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3
+                <ol>
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                </ol>
+            </li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+
+        <ol>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ol>
+
+        <nav>Navigation</nav>
+        <header>Header</header>
+        <footer>Footer</footer>
+
+        <article>Article</article>
+        <aside>Aside</aside>
+        <section></section>
+
+        <b>bold</b>
+        <br>
+        <i>italic</i>
+        <hr>
+        <u>underline</u>
+        <strong>strong</strong>
+
+        <table>
+            <thead>
+                <tr> <!--table row-->
+                    <th>STT</th> <!--table head-->
+                    <th>TÊN</th>
+                    <th>TUỔI</th>
+                    <th>NƠI SINH</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td> <!--table data-->
+                    <td>Nguyễn Văn A</td>
+                    <td>10</td>
+                    <td>Hà Nội</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Nguyễn Văn B</td>
+                    <td>20</td>
+                    <td>Sài Gòn</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form action="/savedata" method="POST">
+            <input type="text" 
+                    name="username" 
+                    placeholder="Nhập username"
+                    value="lethanhtrung"
+                    disabled
+                    required
+                    readonly> <br> <!-- disabled thi khi POST k dc gui di, readonly thi dc. -->
+            <input type="password" name="password" placeholder="Nhập password" required> <br>
+            <input type="email" name="email"> <br>
+            <input type="number" name="age"> <br>
+            <input type="date" name="date" id="">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" name="submit">
+            <input type="checkbox" name="">
+            <input type="checkbox" name="">
+            <input type="radio" name="answer">
+            <input type="radio" name="answer">
+            
+        </form>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+.menu {
+    background-color: #D5B0AC;
+    text-align: center;
+}
+
+span[class="hr"] {
+    color: #402E2A;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 1.9;
+    text-align: center;
+    
+}
+
+span:hover {
+    color: #FFFFFF;
+    background-color: #9CD08F;
+    cursor: pointer;
+
+}
+
+span[class="vr"] {
+    display: block;
+    color: #402E2A;
+    font-weight: bold;
+    line-height: 1.9;
+    text-align: center;
+    width: 100px;
+    height: 30px;
+    border: 1px solid white;
+}
+
+.menu_vertical {
+    background-color: #D5B0AC;
+    width: 100px;
+}
+
+inline-block elements are simply considered text, you can align it the same way you align text
+contents.
