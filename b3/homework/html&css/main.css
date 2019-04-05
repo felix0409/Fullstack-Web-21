@@ -1,0 +1,46 @@
+p {
+    color: #33376e;
+}
+#background {
+    height: 500px;
+    background-color:  #33376e;
+    background-image: url(https://znews-photo.zadn.vn/w660/Uploaded/spuocaw/2017_04_05/annehathawaynoidoidebaovecon.jpg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.text-red {
+    color: #c51414;
+}
+
+p.text-red {
+    color: #884f4f;
+}
+
+ul li {
+    color: #c51414;
+}
+
+ol > li {
+    color: #33376e;
+}
+
+a:hover {
+    color: #c51414;
+}
+
+img:hover {
+    width: 100px;
+}
+
+/* ul li:nth-child(even)
+ul li:nth-child(odd) */
+
+#top {
+    color: blue;
+}
+
+input[type = email] {
+    background: #2f8144;
+}
+

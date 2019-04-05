@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name = "keyword", content = "kieu anh hera">
+    <meta name = "description">
+    <title>Html&css</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <h1 id = "top">heading</h1>
+    <h2 class = "text-red"></h2>
+    <p class = "text-red">
+        <div id = "background">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis ullam placeat doloremque exercitationem similique expedita totam alias assumenda minus voluptas? Adipisci laboriosam obcaecati suscipit recusandae officiis minima nostrum nihil assumenda!
+        </div>
+    </p>
+
+    <p class = "text-red">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam officia laboriosam corrupti? Possimus aliquam dolore voluptas ducimus enim quam optio voluptatibus velit? Modi reiciendis et nisi voluptatem vero neque quibusdam.
+    </p>
+
+    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti libero officia ipsa quisquam excepturi illum quidem hic consequuntur neque eos ea veniam harum quos, dicta architecto quis perferendis incidunt placeat.</span>
+    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit velit nulla, adipisci saepe odio consequuntur quod quo ad incidunt quia porro doloremque, labore ratione commodi eaque laudantium voluptatum perspiciatis facere!</span>
+
+    <img src="https://znews-photo.zadn.vn/w660/Uploaded/spuocaw/2017_04_05/annehathawaynoidoidebaovecon.jpg" alt="girl">
+    <a href="https://google.com" target="_blank">Go to Google</a>
+    <a href="#top">Go to top</a>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+
+    <nav>Navigation</nav>  <!-- chứa những thứ điều hướng trong trang web ví dụ menu link -->
+    <head>Header</head>
+    <footer>Footer</footer>
+
+    <article>Article</article> 
+    <aside>Aside</aside>
+    <section>Section</section>  <!-- phân khu, nhỏ hơn là div -->
+    <div>Div</div>
+    
+
+    <b>
+        Bold
+    </b>
+    <strong>Strong</strong>
+    <br>
+    <i>
+        Italic
+    </i> <!-- fontawesome hiện icon -->
+    <hr> <!-- tạo đường kẻ ngang -->
+
+    <table>
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Nguyễn Văn A</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Phạm Thị Hường</td>
+                <td>12</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <form action="/savedata" method= "POST">
+        <input type="text" 
+        name= "username" 
+        placeholder="username" 
+        value= "PhamHuong" 
+        disabled
+        required 
+        readonly
+        >
+        <!-- khi submit thì readonly có gửi dữ liệu đi, còn disable thì không -->
+        <input type="password" name = "password" placeholder="password">
+        <input type="email" name = "email">
+        <input type="number" name = "age">
+        <input type="date">
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <!--textarea nhập được nhiều dòng, còn input chỉ được 1 dòng -->
+        <input type="submit">
+    </form>
+
+
+</body>
+</html>
