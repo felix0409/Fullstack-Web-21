@@ -9,20 +9,19 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function(req, res) {
     // get random question
-    const questionList = JSON.parse(fs.readFileSync("questionList.json", {encoding:"utf-8"}));
-    const randomNumber = Math.floor(Math.random()*questionList.length);
+    const questionList = JSON.parse(fs.readFileSync("questionList.json", {encoding:"utf-8"})); //convert file json -> object
+    const randomNumber = Math.floor(Math.random()*questionList.length); // random 0 -> length - 1
     const question = questionList[randomNumber];
     res.send(`
         <h1>${question.content}</h1>
         <form action="/questionListUpdate" method=POST>
             <div>
-                <button id="clickyes" onclick="${question.yes++}" name="yes">Yes</button>
-                <button id="clickno" onclick="${question.no++}" name="no">No</button>
+                <button id="clickyes" onclick="${question.yes++}" name="yes">Sai / Không / Trái</button>
+                <button id="clickno" onclick="${question.no++}" name="no">Đúng / Có / Phải</button>
             </div>
             <div>
-                <a href="/question/${randomNumber}">Ket qua vote</a>
-                <a href="/">Cau hoi khac</a>
-                <a href="/ask">Dat cau hoi</a>
+                <a href="/question/${randomNumber}">Kết quả vote</a>
+                <a href="/">Câu hỏi khác</a>
             </div>
         </form>
     `)
