@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quyết đê</title>
+</head>
+<body>
+    <h1>Hãy hỏi cộng đồng một câu hỏi đúng/sai hoặc có/không :)</h1>
+    <form action="/addquestion" method=POST>
+        <textarea name="question" id="question" maxlength="200" cols="30" rows="10"></textarea> <br>
+        <span id="remain">Còn 200/200 ký tự</span> <br>
+        <button>GỬI</button>
+    </form>
+
+    <script>
+        document.getElementById("question").addEventListener("input", function() {
+            const remainChar = 200 - document.getElementById("question").value.length;
+            document.getElementById("remain").innerText = `còn ${remainChar}/200 ký tự` // `${}` = "asdasd" + "asdasd"
+        });
+    </script>
+</body>
+</html>
