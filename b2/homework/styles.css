@@ -11,14 +11,12 @@ span[class="hr"] {
     height: 30px;
     line-height: 1.9;
     text-align: center;
-    
 }
 
 span:hover {
     color: #FFFFFF;
     background-color: #9CD08F;
     cursor: pointer;
-
 }
 
 span[class="vt"] {

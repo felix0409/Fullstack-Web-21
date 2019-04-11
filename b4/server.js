@@ -14,38 +14,74 @@ app.get('/', function(req, res) {
     const question = questionList[randomNumber];
     res.send(`
         <h1>${question.content}</h1>
-        <form action="/questionListUpdate" method=POST>
             <div>
-                <button id="clickyes" onclick="${question.yes++}" name="yes">Sai / Không / Trái</button>
-                <button id="clickno" onclick="${question.no++}" name="no">Đúng / Có / Phải</button>
+                <a href="/vote/${question.id}/no">
+                    <button> Sai / Không / Trái</button>
+                </a>
+                <a href="/vote/${question.id}/yes">
+                    <button> Đúng / Có / Phải</button>
+                </a>    
             </div>
+
             <div>
-                <a href="/question/${randomNumber}">Kết quả vote</a>
-                <a href="/">Câu hỏi khác</a>
+                <a>
+                    <button>Kết quả vote</button>
+                </a>
+                <a>
+                    <button>Câu hỏi khác</button>
+                </a>
             </div>
-        </form>
     `)
     // res.sendFile(__dirname + "/views/home.html");
 });
 
-app.post('/questionListUpdate', function(req, res) {
+
+app.get("/vote/:questionId/:vote", (req, res) => {
+    // const questionId = req.params.questionId;
+    // const vote = req.params.vote;
+    const { questionId, vote } = req.params;
+
     const questionList = JSON.parse(fs.readFileSync("questionList.json", {encoding:"utf-8"}));
-    const randomNumber = Math.floor(Math.random()*questionList.length);
-    const question = questionList[randomNumber];
+    // 3 == "3" => true, check gia tri
+    // 3 === "3" => false, check gia tri va type
 
-    // const clickyes = document.getElementById('clickyes');
-    // const clickno = document.getElementById('clickno');
 
-    // if (clickyes.innerText === "yes") {
-    //     question.yes++;
-    //     console.log(questionList);
-    // } else if (clickno.innerText === "no") {
-    //     question.no--;
-    //     console.log(questionList);
+    //vote == "yes" || "no"
+    // questionList[i].yes || questionList[i]["yes"] ]] questionList[i]["no"] || questionList[i][vote] => 2 cach lay value
+
+    // for (let i = 0; i < questionList.length; i++) {
+    //     if (questionList[i].id == questionId) {
+    //         if (vote == "yes") {
+    //             questionList[i].yes++;
+    //         } else questionList[i].no++;
+    //     }
     // }
 
-    res.send("Voting successfully!");
+    questionList[questionId][vote]++;
+
+    fs.writeFileSync("./questionList.json", JSON.stringify(questionList));
+    res.redirect("/") // chuyen huong sang trang chu
+
 })
+
+// app.post('/questionListUpdate', function(req, res) {
+//     const questionList = JSON.parse(fs.readFileSync("questionList.json", {encoding:"utf-8"}));
+//     const randomNumber = Math.floor(Math.random()*questionList.length);
+//     const question = questionList[randomNumber];
+
+//     // const clickyes = document.getElementById('clickyes');
+//     // const clickno = document.getElementById('clickno');
+
+//     // if (clickyes.innerText === "yes") {
+//     //     question.yes++;
+//     //     console.log(questionList);
+//     // } else if (clickno.innerText === "no") {
+//     //     question.no--;
+//     //     console.log(questionList);
+//     // }
+
+//     res.send("Voting successfully!");
+// })
 
 app.get('/ask', function(req, res) {
     res.sendFile(__dirname + "/views/ask.html") //dirname: duong dan tuyet doi
