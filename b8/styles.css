@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(14, 14, 14);
+    font-size: 1rem;
+}
+
+input[type=search] {
+    padding: 3px;
+    font-size: 17px;
+    border-color: rgb(211, 209, 209);
+    border-width: 1px 0.5px;
+}
+
+.buttonSearch {
+    float: right;
+    padding: 3px 10px;
+    background-color: white;
+    font-size: 17px;
+    cursor: pointer;
+    color: black;
+    border-color: rgb(211, 209, 209);
+    border-width: 1px 0.5px;
+}
+
+
+.content {
+    margin-top: 250px;
+}
+
+@font-face {
+    font-family: 'myFont';
+    src: url('./LABRIT__.tff');
+}
+
+
+.brandName {
+    font-family: 'Rock Salt', cursive;
+    font-size: 3rem; 
+}
+
+
+.card {
+    border: none;
+}
+
+.collectionName {
+    color: white;
+    font-size: 2rem;
+    letter-spacing: 10px;
+    font-weight: 100;
+    margin-bottom: 30px;
+}
+
+.footer {
+    color: white;
+    background-color: rgba(42, 42, 42, 0.753);
+    font-size: 1rem;
+    height: 50px;
+    margin-top: 200px;
+
+}
+
+#footerLeft {
+    display: inline-block;
+    list-style: none;
+    margin-top: 10px;
+
+
+}
+
+#footerRight {
+    float: right;
+    list-style: none;
+    margin-top: 10px;
+    margin-right: 50px;
+}
+
+.userImage {
+    background-color: black;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.inforUser {
+    float: right;
+    line-height: 0.5;
+    text-align: left;
+    margin-right: 50px;
+    margin-top: 12px;
+}
+
+i.fas.fa-search {
+    color: gray;
+    position: relative;
+    right: 25px;
+}
+
+.form-group {
+    /* width: ; */
+}
+
+.form-control {
+    border-radius: 0;
+    width: 200px;
+}
+
+
+/* hover card */
+.card {
+    position: relative;
+    transition: filter 0.5s;
+    filter: blur(0);
+}
+
+.card:hover {
+    filter: blur(4px);
+}
+
+.notBlur {
+    filter: blur(0);
+}
+
+.display {
+    visibility: hidden;
+}
+
+
+.fa-circle-notch {
+    display: inline-block;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    transform: translate(-50%, -50%);
+    width: 35px;
+    height: 35px;
+    color: black;
+}
+
+@media screen and (min-width: 420px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+/* small device (tablet) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* medium sized device (desktop) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* larger device (wide-screen monitors) */
+@media screen and (min-width: 1200px) {
+    
+}
+
+
