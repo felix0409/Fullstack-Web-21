@@ -16,16 +16,12 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"><script src="./main.js"></script>
 </head>
+
 <body>
     <div class="container">
         
         <div class="row text-center" style="margin-top: 30px; margin-right: 15px;">
-            <div class="col-md-3 text-center">
-                <img style="width: 40%; height: 40%;" src="./youtube.webp" alt="">
-                <h2 style="">Let's search!</h2>
-            </div>
-
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <!-- <div class="col-md-1"></div> -->
                     <form id="search" class="col-md-12">
                         <div class="form-group">
@@ -55,54 +51,136 @@
 
     
     <script>
-        $("#search").submit(function(event) {
-            event.preventDefault();
-            var searchTerm = $("#keyword").val();
-            // alert("Your action is forbidden muahahahahahaahahahaha :) ");
-            var url = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + searchTerm + "&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw";
-            $.ajax ({
-                url: url,
-                type: "GET",
-                contentType: "application/json; charset=utf-8",
-                async: false,
-                dataType: 'json',                    
-                success: function(data, status, jqXHR) {
-                    // console.log(data);
-                    // $("#result-list").html();
-                    // for (var i = 0; i < data.length; i++) {
-                    //     $("result-list").prepend('<iframe width="420" height="345" src="'+data[3][i]+'"></iframe>');
-                    // }
-                    // console.log(data.items[0].snippet.channelTitle);
-                    for (var i = 0; i < data.items.length; i++) {
-                        var title = data.items[i].snippet.channelTitle;
-                        var description = data.items[i].snippet.description;
-                        var id = data.items[i].id.videoId;
-                        var thumbnail = data.items[i].snippet.thumbnails.high.url;
-                        $('#result-list').append(`
-                            <div class="">
-                                <h2> ${title} </h2>
-                                <p> ${description} </p>
-                                <a href="https://www.youtube.com/watch?v=${id}"><img src="${thumbnail}"></a>   
-                            </div>
-                        `)
+        $(document).ready(function() {
+            let pageToken;
+            let enableLoad = true;
+
+            $('#search').on("submit", function(event) {
+                event.preventDefault();
+                
+                const key = $("#keyword").val();
+
+                // $("#result-list").html('');
+                // $("#result-list").empty();
+                $.ajax({
+                    url:`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${key}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw`,
+                    type:"GET",
+                    success: function(data) {
+                        const { items, nextPageToken } = data;
+
+                        pageToken = nextPageToken;
+
+                        // items.forEach((item, index) => {
+                        // 	console.log(item);
+                        // 	$("#result-list").append(`
+                        // 		<div>
+                        // 			<img src="${item.snippet.thumbnails.high.url}" />
+                        // 			<div>${item.snippet.title}</div>
+                        // 		</div>
+                        // 	`);
+                        // });
+
+                        // forEach, map, filter, reduce
+                        const results = items.map(function(item) {
+                            return `
+                                <div>
+                                    <img src="${item.snippet.thumbnails.high.url}" />
+                                    <div>${item.snippet.title}</div>
+                                </div>
+                            `;
+                        });
+                        $("#result-list").html(results.join(""));
+                    },
+                    error: function(error) {
+                        console.log(error)
                     }
-                },
-                error: function(err) {
-                    console.log(err);
-                },
-            })
-            .done(() => {
-                console.log("success");
-            })
-            .fail(() => {
-                console.log("error");
-            })
-            .always(() => {
-                console.log('complete');
+                });
             });
 
-        });
+            // nhap dc 1s moi' chay.
+            let debounce;
+            $('#keyword').on("input", function(){
+                if (debounce) {
+                    clearTimeout(debounce);
+                }
 
+                debounce = setTimeout(function() {
+                    const key = $("#keyword").val();
+
+                    // $("#result-list").html('');
+                    // $("#result-list").empty();
+                    $.ajax({
+                        url:`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${key}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw`,
+                        type:"GET",
+                        success: function(data) {
+                            const { items, nextPageToken } = data;
+
+                            pageToken = nextPageToken;
+
+                            // items.forEach((item, index) => {
+                            // 	console.log(item);
+                            // 	$("#result-list").append(`
+                            // 		<div>
+                            // 			<img src="${item.snippet.thumbnails.high.url}" />
+                            // 			<div>${item.snippet.title}</div>
+                            // 		</div>
+                            // 	`);
+                            // });
+
+                            // forEach, map, filter, reduce
+                            const results = items.map(function(item) {
+                                return `
+                                    <div>
+                                        <img src="${item.snippet.thumbnails.high.url}" />
+                                        <div>${item.snippet.title}</div>
+                                    </div>
+                                `;
+                            });
+                            $("#result-list").html(results.join(""));
+                        },
+                        error: function(error) {
+                            console.log(error)
+                        }
+                    });
+                }, 1000);
+            });
+
+            $(window).on("scroll", function() {
+                const documentHeight = $(document).height();
+                const windowHeight = $(window).height();
+                const windowScrollTop = $(window).scrollTop();
+                
+                if (enableLoad && pageToken && documentHeight - (windowHeight + windowScrollTop) < 400) {
+                    console.log(pageToken);
+                    enableLoad = false;
+                    const key = $("#keyword").val();
+
+                    $.ajax({
+                        url: `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${key}&type=video&key=AIzaSyA9gQZ-oYomFypZN7PsupZJtOfQqA6Q3qw&pageToken=${pageToken}`,
+                        type: "GET",
+                        success: function(data) {
+                            const { items, nextPageToken } = data;
+            
+                            pageToken = nextPageToken;
+
+                            const results = items.map(function(item) {
+                                return `
+                                    <div>
+                                        <img src="${item.snippet.thumbnails.high.url}" />
+                                        <div>${item.snippet.title}</div>
+                                    </div>
+                                `;
+                            });
+                            $("#result-list").append(results.join(""));
+                            enableLoad = true;
+                        },
+                        error: function(error) {
+                            console.log(error)
+                        }
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
