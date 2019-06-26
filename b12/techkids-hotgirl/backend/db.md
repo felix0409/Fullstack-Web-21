@@ -1,14 +1,13 @@
 - users:
-    - username: string
-    - password: string
-    - avatar: string
-    - name: string
-
+	- username: string
+	- password: string
+	- avatar: string
+	- name: string
 - posts:
-    - author: ObjectId
-    - date: date
-    - post: string
-    - view: number
-    - title: string
-    - like: number
-    - image: string
+	- author: ObjectId
+	- date: date
+	- post: string
+	- view: number
+	- title: string
+	- like: number
+	- image: string
